@@ -45,5 +45,7 @@ export function GlobalErrorHandler<ErrorRequestHandler>(
   else {
     message = error.message || 'Something went wrong';
   }
+
+  console.log(error);
   return SendErrorResponse(res, { message, status, error });
 }

@@ -10,3 +10,9 @@ AuthRouter.post(
   ValidationHandler(AuthValidation.CreateAccountValidationSchema),
   AuthController.Register
 );
+
+AuthRouter.post(
+  '/login',
+  ValidationHandler(AuthValidation.LoginValidationSchema),
+  AuthController.Login
+);
