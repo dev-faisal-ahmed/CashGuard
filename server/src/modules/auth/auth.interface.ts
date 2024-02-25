@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
 
-export type AccountType = 'AGENT' | 'USER' | 'ADMIN';
+export type RoleType = 'AGENT' | 'USER' | 'ADMIN';
 
 export type AuthType = {
   _id: Types.ObjectId;
@@ -8,6 +8,6 @@ export type AuthType = {
   pin: string;
   mobile: string;
   email: string;
-  accountType: string;
-  nid: AccountType;
+  role: RoleType;
+  nid: string;
 };

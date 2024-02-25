@@ -1,5 +1,5 @@
 import { jwtSecret } from '../config/config';
-import { AuthModel } from '../modules/auth/auth-model';
+import { AuthModel } from '../modules/auth/auth.model';
 import { AppError } from '../utils/app-error';
 import { TryCatch } from '../utils/try-catch';
 import jwt from 'jsonwebtoken';
