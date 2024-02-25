@@ -9,6 +9,7 @@ export const AuthSchema = new Schema<AuthType>({
   email: { type: String, required: true, unique: true },
   nid: { type: String, required: true, unique: true },
   role: { type: String, enum: Roles, required: true },
+  balance: { type: Number, required: true },
 });
 
 export const AuthModel = model('auth', AuthSchema);

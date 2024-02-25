@@ -1,14 +1,23 @@
+import bcrypt from 'bcrypt';
 import { salt } from '../../../config/config';
-import { AppError } from '../../../utils/app-error';
+import { RoleType } from '../auth.interface';
 import { AuthModel } from '../auth.model';
 import { CreateAccountValidationSchemaType } from '../auth.validation';
-import bcrypt from 'bcrypt';
 
 export const Register = async (payload: CreateAccountValidationSchemaType) => {
   // hashing user's pin
-  const { pin } = payload;
+  const { pin, role } = payload;
   const hashedPin = await bcrypt.hash(pin, salt);
-  const userInfo = await AuthModel.create({ ...payload, pin: hashedPin });
+
+  // updating balance
+  const balance = (role as RoleType) === 'USER' ? 40 : 100000;
+
+  // creating user account
+  const userInfo = await AuthModel.create({
+    ...payload,
+    pin: hashedPin,
+    balance,
+  });
   const { pin: _, ...restUserInfo } = userInfo.toObject();
   return restUserInfo;
 };
