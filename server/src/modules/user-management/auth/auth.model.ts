@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { AuthType } from './auth.interface';
-import { Roles } from './auth.constant';
+import { Roles, UserStatus } from './auth.constant';
 
 export const AuthSchema = new Schema<AuthType>({
   name: { type: String, required: true },
@@ -10,6 +10,7 @@ export const AuthSchema = new Schema<AuthType>({
   nid: { type: String, required: true, unique: true },
   role: { type: String, enum: Roles, required: true },
   balance: { type: Number, required: true },
+  status: { type: String, enum: UserStatus, default: 'PENDING' },
 });
 
 export const AuthModel = model('auth', AuthSchema);

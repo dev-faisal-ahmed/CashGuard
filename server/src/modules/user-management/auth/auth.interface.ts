@@ -1,6 +1,7 @@
 import { Types } from 'mongoose';
 
 export type RoleType = 'AGENT' | 'USER' | 'ADMIN';
+export type UserStatusType = 'PENDING' | 'APPROVED' | 'BLOCKED';
 
 export type AuthType = {
   _id: Types.ObjectId;
@@ -11,4 +12,7 @@ export type AuthType = {
   role: RoleType;
   nid: string;
   balance: number;
+  incoming: number;
+  outgoing: number;
+  status: UserStatusType;
 };

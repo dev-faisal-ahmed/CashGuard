@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { isNumber } from '../../utils/helper';
 import { RoleType } from './auth.interface';
+import { isNumber } from '../../../utils/helper';
 
 const Roles: RoleType[] = ['USER', 'AGENT'];
 
