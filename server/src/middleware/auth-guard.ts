@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { jwtSecret } from '../config/config';
-import { AuthModel } from '../modules/auth/auth.model';
 import { AppError } from '../utils/app-error';
 import { TryCatch } from '../utils/try-catch';
-import { RoleType } from '../modules/auth/auth.interface';
+import { AuthModel } from '../modules/user-management/auth/auth.model';
+import { RoleType } from '../modules/user-management/auth/auth.interface';
 
 export function AuthGuard(...requiredRoles: RoleType[]) {
   return TryCatch(async (req, _, next) => {

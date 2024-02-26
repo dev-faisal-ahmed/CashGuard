@@ -8,3 +8,4 @@ export const mongoUri = process.env.MONGO_URI;
 export const environment = process.env.NODE_ENV;
 export const salt = Number(process.env.BCRYPT_SALT_ROUND);
 export const jwtSecret = process.env.JWT_SECRET;
+export const adminPassword = process.env.ADMIN_PASSWORD;

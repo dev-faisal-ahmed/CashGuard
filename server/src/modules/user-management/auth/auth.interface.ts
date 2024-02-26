@@ -11,8 +11,5 @@ export type AuthType = {
   email: string;
   role: RoleType;
   nid: string;
-  balance: number;
-  incoming: number;
-  outgoing: number;
   status: UserStatusType;
 };
