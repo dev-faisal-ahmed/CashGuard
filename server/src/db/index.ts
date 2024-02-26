@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { AdminModel } from '../modules/user-management/admin/admin.model';
 import { AuthModel } from '../modules/user-management/auth/auth.model';
 import { AppError } from '../utils/app-error';
-import { adminPassword } from '../config/config';
+import { adminEmail, adminPassword } from '../config/config';
 
 export async function SeedAdmin() {
   /*  this function will try to create admin 
@@ -21,7 +21,7 @@ export async function SeedAdmin() {
       const [adminInAuthCollection] = await AuthModel.create(
         [
           {
-            email: 'admin@cash.guard.com',
+            email: adminEmail,
             role: 'ADMIN',
             status: 'APPROVED',
             name: 'Admin-CashGuard',
@@ -38,7 +38,7 @@ export async function SeedAdmin() {
       // creating admin in admin collection
       const { _id } = adminInAuthCollection.toObject();
       const [adminInAdminCollection] = await AdminModel.create(
-        [{ balance: 0, totalMoney: 0, user: _id }],
+        [{ balance: 0, totalMoney: 0, user: _id, role: 'ADMIN' }],
         { session }
       );
 

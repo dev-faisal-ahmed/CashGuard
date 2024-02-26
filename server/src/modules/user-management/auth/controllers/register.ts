@@ -3,10 +3,10 @@ import { TryCatch } from '../../../../utils/try-catch';
 import { AuthServices } from '../services';
 
 export const Register = TryCatch(async (req, res) => {
-  const userInfo = await AuthServices.Register(req.body);
+  await AuthServices.Register(req.body);
 
   return SendSuccessResponse(res, {
-    data: userInfo,
+    data: null,
     message: 'Account Created Successfully',
     status: 200,
   });
